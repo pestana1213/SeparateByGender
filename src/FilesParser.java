@@ -26,6 +26,7 @@ public class FilesParser {
                     gender = 1;
                     break;
                 default:
+                    String[] nome = linhaPartida[0].split(" "); //fica so com o primeiro nome
                     if(gender!=-1){
                         isMaleOrFemale.put(linhaPartida[0],gender);
                     }
@@ -43,9 +44,10 @@ public class FilesParser {
         String[] linhaPartida;
         ArrayList<String> nomes = new ArrayList<>();
         for (String linha : linhas) {
-            linhaPartida = linha.split(":", 2);
+            linhaPartida = linha.split(" "); //fica so com o primeiro nome
             nomes.add(linhaPartida[0]);
         }
+
         return nomes;
     }
 
