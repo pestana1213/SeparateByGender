@@ -22,7 +22,7 @@ public class FilesParser {
             linhaPartida = linha.split(":", 2);
             switch (linhaPartida[0]){
                 case("masculino"):
-                    gender = 0;
+                    gender = 2;
                     break;
                 case("feminino"):
                     gender = 1;
@@ -73,7 +73,7 @@ public class FilesParser {
 
     public static void guarda(Map<String, Integer> genero) throws IOException {
         BufferedWriter escritor = new BufferedWriter(new FileWriter("C:\\Users\\Pestana\\Desktop\\barbara\\sera.txt",false));
-        ArrayList<String> homens = genero.keySet().stream().filter(e->genero.get(e)==0).collect(Collectors.toCollection(ArrayList::new));
+        ArrayList<String> homens = genero.keySet().stream().filter(e->genero.get(e)==2).collect(Collectors.toCollection(ArrayList::new));
         ArrayList<String> mulheres = genero.keySet().stream().filter(e->genero.get(e)==1).collect(Collectors.toCollection(ArrayList::new));
         escritor.write("masculino:\n");
         escritor.flush();
